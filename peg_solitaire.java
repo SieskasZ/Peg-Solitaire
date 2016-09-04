@@ -1,19 +1,26 @@
-
 //peg-solitaire code by: Irene Woo
 //Original HiRiQ code by: Claude Crepeau
 
-// My memory management policy: make the child node null if:
-// 1 - a node with the same board as a child is in the OPEN list
-	// and that node has a lower f than child
-// 2 - a node with the same board as child is in the CLOSED list
-	// and that node has a lower f than child
-// 3 - a node is the same as the parent node
+/* My Strategy:
+I initialize a tree with the parent node being the config board. 
+The parent node's children are all possible boards created after one valid move.
+I use A* search paradigms and a 3-colouring of the puzzle.
+The heuristic estimated cost is the number of white pixels on the board.
+The exact cost of the path from the starting board to another board is the level of that board in the tree, where a node is a board.
 
-// My strategy
-// I initialize the tree with the parent node with the config board
-// I use the A* algorithm
-// g = level of the node in the tree
-// h = number of white pixels 
+My memory management policy: make the child node null if:
+1 - a node with the same board as a child is in the OPEN list and that node has a lower f than child
+2 - a node with the same board as child is in the CLOSED list and that node has a lower f than child
+3 - a node is the same as the parent node
+
+If the child node has less white pixels than the parent node, add it to the OPEN list.
+Else add it to the WHITE list.
+
+If OPEN is not empty, pop the node with the smallest heurisic cost and evaluate its children.
+
+The program continues until it finds the solved board.
+The output is a list of valid moves that lead from the original board to the solved state.
+*/
 
 
 import java.util.*;
@@ -23,7 +30,7 @@ public class tester {
 
 		class HiRiQ
 		{
-			//int is used to reduce storage to a minimum...
+			//int is used to reduce storage to a minimum
 			public int config;
 			public byte weight;
 
