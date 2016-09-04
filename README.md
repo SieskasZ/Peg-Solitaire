@@ -1,2 +1,2 @@
 # Peg-Solitaire
-Peg Solitaire Puzzle Solver
+A peg solitaire puzzle solver using A* search paradigms.
