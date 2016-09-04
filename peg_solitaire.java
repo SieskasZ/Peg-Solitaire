@@ -1,4 +1,6 @@
-// I worked with Seara Chen and Abhijit Singh Chhabra
+
+//peg-solitaire code by: Irene Woo
+//Original HiRiQ code by: Claude Crepeau
 
 // My memory management policy: make the child node null if:
 // 1 - a node with the same board as a child is in the OPEN list
@@ -16,8 +18,7 @@
 
 import java.util.*;
 public class tester {
-	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
-	// Code given by the assignment
+
 	public static void main(String[] args) {
 
 		class HiRiQ
